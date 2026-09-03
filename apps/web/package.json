@@ -11,8 +11,11 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@phosphor-icons/web": "^2.1.1",
     "@treasury/agent": "workspace:*",
     "@treasury/data": "workspace:*",
+    "@treasury/ui-tokens": "workspace:*",
+    "@treasury/ui-web": "workspace:*",
     "next": "^15.1.0",
     "react": "^18.3.0",
     "react-dom": "^18.3.0"
