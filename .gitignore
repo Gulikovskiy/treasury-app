@@ -17,8 +17,6 @@ out/
 coverage/
 
 # Env
-.env
-.env.local
 .env.*.local
 
 # Logs
@@ -29,7 +27,6 @@ pnpm-debug.log*
 # Editors / OS
 .DS_Store
 Thumbs.db
-.vscode/
 .idea/
 *.swp
 
@@ -40,3 +37,7 @@ Thumbs.db
 .metro-health-check*
 *.orig.*
 web-build/
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
+config.bat

@@ -6,9 +6,9 @@
     "node": ">=20"
   },
   "scripts": {
-    "dev:web": "turbo run dev --filter=web",
-    "dev:mobile": "turbo run dev --filter=mobile",
-    "build": "turbo run build",
+    "dev:web": "node init && turbo run dev --filter=web",
+    "dev:mobile": "node init && turbo run dev --filter=mobile",
+    "build": "node init && turbo run build",
     "test": "turbo run test",
     "lint": "turbo run lint && ./scripts/check-no-global-fetch-native.sh",
     "typecheck": "turbo run typecheck"

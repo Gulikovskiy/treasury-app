@@ -4,7 +4,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "dev": "expo start",
+    "dev": "node init && expo start",
     "android": "expo run:android",
     "lint": "echo \"no lint configured for apps/mobile yet\" && exit 0",
     "typecheck": "tsc --noEmit",
@@ -13,11 +13,17 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.29.7",
+    "@expo-google-fonts/inter": "^0.4.2",
     "@treasury/agent": "workspace:*",
     "@treasury/data": "workspace:*",
+    "@treasury/ui-native": "workspace:*",
+    "@treasury/ui-tokens": "workspace:*",
     "expo": "~52.0.0",
+    "expo-font": "~13.0.4",
+    "phosphor-react-native": "^3.0.6",
     "react": "^18.3.0",
-    "react-native": "0.76.5"
+    "react-native": "0.76.5",
+    "react-native-svg": "15.8.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.0",
