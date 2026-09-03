@@ -1,0 +1,28 @@
+{
+  "name": "@treasury/ui-native",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@expo-google-fonts/inter": "^0.4.2",
+    "@treasury/agent": "workspace:*",
+    "@treasury/data": "workspace:*",
+    "@treasury/ui-tokens": "workspace:*",
+    "expo-font": "~13.0.4",
+    "phosphor-react-native": "^3.0.6",
+    "react-native-svg": "15.8.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "typescript": "^5.7.0"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.76"
+  }
+}
