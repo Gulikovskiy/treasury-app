@@ -1,0 +1,21 @@
+{
+  "name": "treasury-app",
+  "private": true,
+  "packageManager": "pnpm@9.15.9",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev:web": "turbo run dev --filter=web",
+    "dev:mobile": "turbo run dev --filter=mobile",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint && ./scripts/check-no-global-fetch-native.sh",
+    "typecheck": "turbo run typecheck"
+  },
+  "devDependencies": {
+    "turbo": "^2.3.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.8"
+  }
+}

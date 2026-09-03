@@ -1,0 +1,26 @@
+{
+  "name": "mobile",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "dev": "expo start",
+    "android": "expo run:android",
+    "lint": "echo \"no lint configured for apps/mobile yet\" && exit 0",
+    "typecheck": "tsc --noEmit",
+    "test": "echo \"no unit tests in apps/mobile for this feature\" && exit 0",
+    "ios": "expo run:ios"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.29.7",
+    "@treasury/agent": "workspace:*",
+    "@treasury/data": "workspace:*",
+    "expo": "~52.0.0",
+    "react": "^18.3.0",
+    "react-native": "0.76.5"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "typescript": "^5.7.0"
+  }
+}
