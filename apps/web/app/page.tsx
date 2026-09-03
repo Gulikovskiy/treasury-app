@@ -1,51 +1,41 @@
 "use client";
 
-import { useAgentStream } from "@treasury/data";
 import { createWebFetchAdapter } from "@treasury/data/webFetchAdapter";
-import { useState } from "react";
+import {
+  ActivityPanel,
+  AlertsPanel,
+  AskPanel,
+  ContextSidebar,
+  NavBar,
+  PositionsPanel,
+  ThreadSidebar,
+  type WebTab,
+} from "@treasury/ui-web";
+import { useMemo, useState } from "react";
 
-// Non-Goal (spec.md): no UI polish. A minimal, unstyled view is sufficient
-// to prove the transport mechanism.
 const fetchImpl = createWebFetchAdapter();
-const CONVERSATION_ID = "demo-conversation";
+const SAFE_ADDRESS = "0x4750…c74f";
 
 export default function Page() {
-  const [prompt, setPrompt] = useState("");
-  const { snapshot, submit, cancel } = useAgentStream(CONVERSATION_ID, fetchImpl);
-  const isStreaming = snapshot?.status === "streaming";
+  const [tab, setTab] = useState<WebTab>("ask");
+  const goAsk = useMemo(() => () => setTab("ask"), []);
 
   return (
-    <main>
-      <h1>Treasury Analyst (transport prototype)</h1>
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-          if (prompt.trim().length === 0) return;
-          submit(prompt);
-        }}
-      >
-        <input
-          value={prompt}
-          onChange={(event) => setPrompt(event.target.value)}
-          placeholder="Ask about the Safe's treasury position"
-          aria-label="prompt"
-        />
-        <button type="submit">Send</button>
-        <button type="button" onClick={cancel} disabled={!isStreaming}>
-          Cancel
-        </button>
-      </form>
-      {snapshot && (
-        <p data-testid="assistant-message" data-status={snapshot.status}>
-          {snapshot.message.content}
-          {snapshot.status === "errored" && (
-            <span data-testid="error-marker"> [response incomplete — an error occurred]</span>
-          )}
-          {snapshot.status === "cancelled" && (
-            <span data-testid="cancelled-marker"> [cancelled — response incomplete]</span>
-          )}
-        </p>
-      )}
+    <main style={{ minHeight: "100vh" }}>
+      <NavBar tab={tab} onTabChange={setTab} safeAddress={SAFE_ADDRESS} />
+      <div className="web-shell-grid">
+        <ThreadSidebar />
+        <div
+          className="web-main-panel"
+          style={{ padding: "22px 26px", display: "flex", flexDirection: "column", gap: 18, minWidth: 0, minHeight: 0 }}
+        >
+          {tab === "ask" && <AskPanel fetchImpl={fetchImpl} />}
+          {tab === "positions" && <PositionsPanel onAskAbout={goAsk} />}
+          {tab === "activity" && <ActivityPanel />}
+          {tab === "alerts" && <AlertsPanel onAskAbout={goAsk} />}
+        </div>
+        <ContextSidebar />
+      </div>
     </main>
   );
 }

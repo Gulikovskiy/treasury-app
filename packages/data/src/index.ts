@@ -5,3 +5,4 @@
 //   "@treasury/data/nativeFetchAdapter" (apps/mobile)
 export { useAgentStream } from "./useAgentStream";
 export type { AgentStreamFetch, StreamResponse, UseAgentStreamResult } from "./useAgentStream";
+export * from "./mockTreasuryData";

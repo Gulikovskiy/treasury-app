@@ -8,7 +8,7 @@
   "scripts": {
     "dev:web": "turbo run dev --filter=web",
     "dev:mobile": "turbo run dev --filter=mobile",
-    "build": "turbo run build",
+    "build": "node api.js && turbo run build",
     "test": "turbo run test",
     "lint": "turbo run lint && ./scripts/check-no-global-fetch-native.sh",
     "typecheck": "turbo run typecheck"

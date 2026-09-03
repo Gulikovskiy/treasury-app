@@ -1,7 +1,10 @@
+import "@treasury/ui-web/styles.css";
+import "@phosphor-icons/web/regular/style.css";
+import "@phosphor-icons/web/fill/style.css";
 import type { ReactNode } from "react";
 
 export const metadata = {
-  title: "Treasury Analyst (transport prototype)",
+  title: "Treasury Analyst",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
